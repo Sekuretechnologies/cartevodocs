@@ -43,35 +43,56 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "Endpoint examples",
+            "group": "Wallets",
             "pages": [
               "api-reference/endpoint/get-wallets",
               "api-reference/endpoint/post-wallets",
-              "api-reference/endpoint/webhook",
               "api-reference/endpoint/get-wallet-by-id",
               "api-reference/endpoint/get-wallet-transactions",
-              "api-reference/endpoint/get-wallet-transactions-global",
-              "api-reference/endpoint/get-transaction",
+              "api-reference/endpoint/post-wallets-id-transfer-internal",
               "api-reference/endpoint/post-wallets-fund",
               "api-reference/endpoint/post-wallets-deposit",
-              "api-reference/endpoint/post-wallets-transfer-between",
+              "api-reference/endpoint/post-wallets-transfer-between"
+            ]
+          },
+
+          {
+            "group": "Cards",
+            "pages": [
+              "api-reference/endpoint/get-cards",
+              "api-reference/endpoint/post-cards",
+              "api-reference/endpoint/get-card-by-id",
+              "api-reference/endpoint/put-card-freeze",
+              "api-reference/endpoint/put-card-unfreeze",
+              "api-reference/endpoint/post-card-fund",
+              "api-reference/endpoint/post-card-withdraw",
+              "api-reference/endpoint/get-card-transactions"
+            ]
+          },
+          {
+            "group": "Transactions",
+            "pages": [
+              "api-reference/endpoint/get-wallet-transactions-global",
+              "api-reference/endpoint/get-transaction"
+            ]
+          },
+          {
+            "group": "Customers",
+            "pages": [
               "api-reference/endpoint/get-customers",
               "api-reference/endpoint/post-customers",
               "api-reference/endpoint/get-customer-by-id",
               "api-reference/endpoint/get-customer-transactions"
             ]
           },
+
           {
-            "group": "Webhook",
-            "pages": ["webhook/overview", "webhook/verifying"]
-          },
-          {
-            "group": "Customers",
-            "pages": ["customers/overview", "customers/integration-guide"]
-          },
-          {
-            "group": "Transfers",
-            "pages": ["transfers/overview"]
+            "group": "Guides (domain)",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/wallets",
+              "api-reference/collections"
+            ]
           }
         ]
       }
@@ -87,8 +108,8 @@
     }
   },
   "logo": {
-    "light": "/favicon.ico",
-    "dark": "/favicon.ico"
+    "light": "/logo.ico",
+    "dark": "/logo.ico"
   },
   "navbar": {
     "links": [

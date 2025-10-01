@@ -8,6 +8,119 @@
   "servers": [{ "url": "https://api.cartevo.co/api/v1" }],
   "security": [{ "bearerAuth": [] }],
   "paths": {
+    "/cards": {
+      "get": {
+        "summary": "Lister les cartes",
+        "responses": { "200": { "description": "OK" } }
+      },
+      "post": {
+        "summary": "Créer une carte",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customer_id": { "type": "string" },
+                  "currency": { "type": "string" },
+                  "brand": { "type": "string", "enum": ["VISA", "MASTERCARD"] },
+                  "name_on_card": { "type": "string" }
+                },
+                "required": ["customer_id", "currency", "brand", "name_on_card"]
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Créé" } }
+      }
+    },
+    "/cards/{id}": {
+      "get": {
+        "summary": "Détail d’une carte",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/cards/{id}/freeze": {
+      "put": {
+        "summary": "Geler une carte",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/cards/{id}/unfreeze": {
+      "put": {
+        "summary": "Dégeler une carte",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/cards/{id}/fund": {
+      "post": {
+        "summary": "Recharger une carte",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "wallet_id": { "type": "string" },
+                  "amount": { "type": "number" },
+                  "reason": { "type": "string" }
+                },
+                "required": ["wallet_id", "amount"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/cards/{id}/withdraw": {
+      "post": {
+        "summary": "Retrait depuis une carte",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "wallet_id": { "type": "string" },
+                  "amount": { "type": "number" },
+                  "reason": { "type": "string" }
+                },
+                "required": ["wallet_id", "amount"]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/cards/{id}/transactions": {
+      "get": {
+        "summary": "Transactions d’une carte",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
     "/wallets": {
       "get": {
         "summary": "Lister les portefeuilles",
@@ -126,6 +239,31 @@
                   "amount",
                   "currency"
                 ]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/wallets/{id}/transfer-internal": {
+      "post": {
+        "summary": "Transfert interne (PAYIN ⇄ PAYOUT)",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": { "type": "number" },
+                  "direction": { "type": "string", "enum": ["PAYIN_TO_PAYOUT", "PAYOUT_TO_PAYIN"] },
+                  "reason": { "type": "string" }
+                },
+                "required": ["amount", "direction"]
               }
             }
           }

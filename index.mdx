@@ -8,7 +8,7 @@ description: Plateforme de gestion de portefeuilles multi‑devises, transferts 
 Cartevo permet aux entreprises de:
 
 - Gérer des portefeuilles (création, détail, solde)
-- Alimenter des portefeuilles (alimentation locale, dépôt avec change, crédit test en pré‑production)
+- Alimenter des portefeuilles (alimentation locale, dépôt avec change)
 - Effectuer des transferts (internes et entre portefeuilles)
 - Consulter les transactions (par portefeuille, client, statut)
 - Gérer les clients (création, liste, détails)
@@ -21,12 +21,11 @@ Cartevo permet aux entreprises de:
 - Sécurité: authentification Bearer, séparation pré‑production/production
 - Observabilité: `request-id`, webhooks (collections)
 
-
-
 ## Commencer
 
 <Card title="Guide de démarrage" icon="rocket" href="/quickstart" horizontal>
-  Intégrez rapidement les services essentiels (portefeuilles, transactions, clients).
+  Intégrez rapidement les services essentiels (portefeuilles, transactions,
+  clients).
 </Card>
 
 <Card title="Référence API" icon="terminal" href="/api-reference/introduction">
@@ -36,6 +35,7 @@ Cartevo permet aux entreprises de:
 ## Exemples rapides
 
 Créer un portefeuille (cURL)
+
 ```bash
 curl -X POST "$BASE_URL/wallets" \
   -H "Authorization: Bearer $API_KEY" \
@@ -47,13 +47,15 @@ curl -X POST "$BASE_URL/wallets" \
 ```
 
 Lister les transactions d’un portefeuille (Node.js)
+
 ```javascript
 import fetch from "node-fetch";
 
-const res = await fetch(`${process.env.BASE_URL}/wallet/transactions/wallet/${process.env.WALLET_ID}`, {
-  headers: { Authorization: `Bearer ${process.env.API_KEY}` }
-});
+const res = await fetch(
+  `${process.env.BASE_URL}/wallet/transactions/wallet/${process.env.WALLET_ID}`,
+  {
+    headers: { Authorization: `Bearer ${process.env.API_KEY}` },
+  }
+);
 const data = await res.json();
 ```
-
-
