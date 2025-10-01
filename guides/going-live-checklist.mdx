@@ -1,0 +1,49 @@
+---
+title: Checklist de mise en production
+description: Vérifications avant passage en production.
+---
+
+Avant de basculer en environnement de production, assurez-vous que toutes les étapes suivantes ont été validées.  
+Cette checklist permet de réduire les risques liés à la mise en service et garantit une intégration fluide.
+
+---
+
+## Portefeuilles
+
+- [ ] Vérifier la configuration des portefeuilles nécessaires (par devise, par utilisateur ou par entité).  
+- [ ] Confirmer que les soldes de départ et les règles de gestion des fonds sont correctement définis.  
+
+---
+
+## Encaissements (Collections)
+
+- [ ] Tester les encaissements en sandbox avec différents scénarios (paiement réussi, échec, montant invalide).  
+- [ ] Vérifier que les statuts retournés par l’API correspondent aux cas attendus.  
+
+---
+
+## Transferts
+
+- [ ] Tester les transferts internes (au sein d’une même organisation).  
+- [ ] Tester les transferts entre portefeuilles différents (ex. client → vendeur).  
+- [ ] Vérifier la cohérence des montants et devises.  
+
+---
+
+## Notifications et Statuts
+
+- [ ] Vérifier la réception des notifications (webhooks) pour chaque type d’événement (transaction, encaissement, transfert).  
+- [ ] S’assurer que votre système traite correctement les mises à jour de statuts (pending, success, failed).  
+- [ ] Mettre en place un mécanisme de réémission ou de rattrapage en cas de webhook manqué.  
+
+---
+
+## Sécurité et Monitoring
+
+- [ ] Confirmer l’utilisation des clés API de production.  
+- [ ] Vérifier que toutes les communications passent par HTTPS/TLS.  
+- [ ] Activer la journalisation (logs) et mettre en place un système d’alerte en cas d’erreur critique.  
+
+---
+
+> Une fois cette checklist validée, votre intégration Cartevo est prête pour le passage en production.

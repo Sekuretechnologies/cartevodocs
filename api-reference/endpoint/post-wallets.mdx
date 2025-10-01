@@ -1,0 +1,33 @@
+---
+title: POST — Create Wallet
+description: Creates a new wallet for the company.
+---
+
+# Create Wallet
+
+Crée un portefeuille pour votre entreprise. Choisissez la devise cible et le code pays ISO‑2. Le solde initial est à 0 et le portefeuille devient disponible pour les dépôts, transferts et encaissements.
+
+Cas d’usage
+
+- Préparer un portefeuille USD pour recevoir des dépôts convertis
+- Créer un portefeuille XAF pour les alimentations locales
+
+## Try it
+
+<ApiPlayground schema="/openapi.json" endpoint="/wallets" method="post" />
+
+## Authorizations
+
+- Authorization: Bearer `<token>` (required)
+
+## Payload
+
+- `currency` (string) — e.g. USD, XAF
+- `country_iso_code` (string) — ISO‑2, e.g. US, CM
+
+Notes
+
+- La réponse contient l’`id` du portefeuille créé
+- Utilisez cet `id` pour les opérations suivantes (fund, deposit, transfer)
+
+

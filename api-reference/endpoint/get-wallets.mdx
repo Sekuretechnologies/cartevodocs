@@ -1,0 +1,35 @@
+---
+title: GET — List Wallets
+description: Returns all wallets for the company.
+---
+
+# Get Wallets
+
+Cette opération retourne l’ensemble des portefeuilles rattachés à votre entreprise. Utilisez‑la pour construire des vues de liste, effectuer des recherches paginées et récupérer les identifiants nécessaires à d’autres opérations (détail, transferts, dépôts).
+
+Cas d’usage
+
+- Afficher tous les portefeuilles d’une entreprise (par devise)
+- Récupérer un `walletId` pour l’historique des transactions
+- Construire des tableaux paginés (via `page` et `limit`)
+
+## Try it
+
+<ApiPlayground schema="/openapi.json" endpoint="/wallets" method="get" />
+
+## Authorizations
+
+- Authorization: Bearer `<token>` (required)
+
+## Query Parameters
+
+- page (integer) — pagination index
+- limit (integer) — results per page
+
+## Notes
+
+- Réponse: un tableau de `Wallet` (id, currency, balance, dates)
+- Combinez avec le détail d’un portefeuille pour charger des informations supplémentaires
+- Incluez un Bearer token valide dans l’en‑tête
+
+

@@ -1,0 +1,30 @@
+---
+title: POST — Transfer Between Wallets
+description: Transfer funds between two wallets.
+---
+
+# Transfer Between Wallets
+
+Transfère des fonds entre deux portefeuilles. Les deux portefeuilles doivent appartenir à l’entreprise, et la devise doit être supportée selon la configuration de l’API.
+
+Cas d’usage
+
+- Mouvement de trésorerie interne entre portefeuilles (ex: sous‑comptes)
+
+## Try it
+
+<ApiPlayground schema="/openapi.json" endpoint="/wallets/transfer-between" method="post" />
+
+## Authorizations
+
+- Authorization: Bearer `<token>` (required)
+
+## Payload
+
+- `sourceWalletId`, `destinationWalletId`, `amount`, `currency`
+
+Notes
+
+- Vérifiez la mise à jour des soldes via `GET /wallets/{id}`
+
+

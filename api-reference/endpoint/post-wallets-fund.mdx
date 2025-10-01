@@ -1,0 +1,30 @@
+---
+title: POST — Fund Wallet (Local)
+description: Funds a wallet via local operator.
+---
+
+# Fund Wallet (Local)
+
+Alimente un portefeuille via un opérateur local (ex: mobile money). Le débit s’effectue sur le moyen de paiement fourni et crédite le portefeuille ciblé.
+
+Cas d’usage
+
+- Créditer rapidement un portefeuille XAF depuis un numéro local
+
+## Try it
+
+<ApiPlayground schema="/openapi.json" endpoint="/wallets/fund" method="post" />
+
+## Authorizations
+
+- Authorization: Bearer `<token>` (required)
+
+## Payload
+
+- `userId`, `walletId`, `amount`, `phone`, `operator`, `currency`
+
+Notes
+
+- Suivez la transaction résultante via les endpoints Transactions
+
+

@@ -1,0 +1,73 @@
+---
+title: Wallets — Cartevo
+description: Endpoints de portefeuilles (création, liste, détail, alimentation, dépôt, transfert).
+---
+
+# Wallets
+
+Cartevo fournit des opérations de portefeuilles multi‑devises pour créer, consulter et mouvoir des fonds entre portefeuilles. Utilisez les exemples ci‑dessous pour tester directement les endpoints.
+
+## Endpoint examples
+
+### Créer un portefeuille
+<ApiPlayground schema="/openapi.json" endpoint="/wallets" method="post" />
+
+Notes
+
+- Champs requis: `currency`, `country_iso_code`
+- Réponse: identifiant du portefeuille et solde initial à 0
+
+### Lister les portefeuilles
+<ApiPlayground schema="/openapi.json" endpoint="/wallets" method="get" />
+
+Paramètres
+
+- `page`, `limit` pour la pagination
+
+### Détail d’un portefeuille
+<ApiPlayground schema="/openapi.json" endpoint="/wallets/{id}" method="get" />
+
+Paramètres de chemin
+
+- `id`: identifiant du portefeuille
+
+### Alimentation locale
+<ApiPlayground schema="/openapi.json" endpoint="/wallets/fund" method="post" />
+
+Champs requis
+
+- `userId`, `walletId`, `amount`, `phone`, `operator`, `currency`
+
+### Dépôt avec change
+<ApiPlayground schema="/openapi.json" endpoint="/wallets/deposit" method="post" />
+
+Description
+
+- Convertit un montant depuis un portefeuille source vers un portefeuille destination selon `exchangeRate`
+
+### Transfert entre portefeuilles
+<ApiPlayground schema="/openapi.json" endpoint="/wallets/transfer-between" method="post" />
+
+Champs requis
+
+- `sourceWalletId`, `destinationWalletId`, `amount`, `currency`
+
+## Schémas (extraits)
+
+Wallet
+```ts
+type Wallet = {
+  id: string;
+  currency: string;
+  balance: number;
+  created_at: string;
+}
+```
+
+Erreur
+```ts
+type Error = { message: string; code?: string };
+```
+
+
+

@@ -1,0 +1,30 @@
+---
+title: POST — Deposit (Conversion)
+description: Deposit with currency conversion.
+---
+
+# Deposit (Conversion)
+
+Dépose un montant avec conversion de devise entre un portefeuille source et un portefeuille destination.
+
+Cas d’usage
+
+- Convertir XAF → USD lors d’un dépôt vers un portefeuille USD
+
+## Try it
+
+<ApiPlayground schema="/openapi.json" endpoint="/wallets/deposit" method="post" />
+
+## Authorizations
+
+- Authorization: Bearer `<token>` (required)
+
+## Payload
+
+- `sourceWallet`, `destinationWallet`, `exchangeRate`
+
+Notes
+
+- Les montants et `rate` doivent correspondre à votre politique de change
+
+

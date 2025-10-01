@@ -1,0 +1,24 @@
+---
+title: GET — List Transactions
+description: Returns all transactions with optional filters and pagination.
+---
+
+# Get Transactions
+
+Retourne toutes les transactions, filtrables par statut et type, avec pagination.
+
+## Try it
+
+<ApiPlayground schema="/openapi.json" endpoint="/wallet/transactions" method="get" />
+
+## Authorizations
+
+- Authorization: Bearer `<token>` (required)
+
+## Query Parameters
+
+- status: SUCCESS | PENDING | FAILED
+- type: FUND | DEPOSIT | TRANSFER | COLLECTION
+- page, limit
+
+
