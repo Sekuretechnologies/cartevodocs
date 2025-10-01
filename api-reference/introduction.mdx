@@ -1,28 +1,17 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "API Reference — Introduction"
+description: "Overview of Cartevo API endpoints and how to use them."
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+Welcome to the **Cartevo API reference**. This documentation guides you through the various financial services you can integrate into your applications, including wallet management, transactions, transfers, and customer management.
 
-## Welcome
+---
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## API Architecture
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+- **Architecture**: RESTful
+- **Data format**: JSON
+- **Authentication**: via Bearer Token in the HTTP `Authorization` header
 
 ```json
 "security": [
@@ -30,4 +19,26 @@ All API endpoints are authenticated using Bearer tokens and picked up from the s
     "bearerAuth": []
   }
 ]
+
 ```
+
+---
+
+## Environments
+
+- **Pre-production**: for testing your integrations in a controlled environment with limited spending.
+- **Production**: for accessing services under real conditions.
+
+---
+
+## Best Practices
+
+- **Authentication**: always include your Bearer Token in the `Authorization` header.
+- **Error Handling**: check HTTP status codes to handle errors effectively.
+- **Security**: ensure all communications are secured via HTTPS/TLS.
+
+---
+
+## Quick Start
+
+To get started quickly, refer to the cURL request examples and integration guides available in the documentation.

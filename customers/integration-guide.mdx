@@ -1,0 +1,55 @@
+---
+title: Customers — Guide d’intégration
+description: Bonnes pratiques et flux d’intégration pour les clients.
+---
+
+# Guide d’intégration — Customers
+
+## Flux recommandé
+
+1. Créer le client
+2. Associer un portefeuille si nécessaire
+3. Vérifier l’identité selon vos exigences
+4. Suivre les transactions du client
+
+## Endpoints utiles
+
+### Créer
+<ApiPlayground schema="/api-reference/openapi.json" endpoint="/customers" method="post" />
+
+### Détail
+<ApiPlayground schema="/api-reference/openapi.json" endpoint="/customers/{id}" method="get" />
+
+### Transactions du client
+<ApiPlayground schema="/api-reference/openapi.json" endpoint="/customers/{id}/transactions" method="get" />
+
+---
+title: Customers — Guide d’intégration
+description: DTOs et endpoints essentiels pour gérer les clients.
+---
+
+# Customers — Guide d’intégration
+
+## Créer un client
+```http
+POST /customers
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+  "first_name": "Jane",
+  "last_name": "Doe",
+  "email": "jane@example.com",
+  "phone_number": "+2376xxxxxxx",
+  "country_iso_code": "CM"
+}
+```
+
+## Lister / Détail
+```http
+GET /customers
+GET /customers/:id
+GET /customers/:id/cards
+GET /customers/:id/transactions
+```
+

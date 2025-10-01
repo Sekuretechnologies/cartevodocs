@@ -1,0 +1,49 @@
+---
+title: Production Checklist
+description: Pre-launch verifications before going live.
+---
+
+Before switching to the production environment, ensure that all the following steps have been completed.  
+This checklist helps minimize risks associated with deployment and ensures a smooth integration.
+
+---
+
+## Wallets
+
+- [ ] Verify the configuration of required wallets (by currency, user, or entity).
+- [ ] Confirm that initial balances and fund management rules are correctly defined.
+
+---
+
+## Collections
+
+- [ ] Test collections in the sandbox with various scenarios (successful payment, failure, invalid amount).
+- [ ] Ensure that API statuses correspond to the expected outcomes.
+
+---
+
+## Transfers
+
+- [ ] Test internal transfers (within the same organization).
+- [ ] Test transfers between different wallets (e.g., customer → seller).
+- [ ] Verify the consistency of amounts and currencies.
+
+---
+
+## Notifications and Statuses
+
+- [ ] Verify receipt of notifications (webhooks) for each event type (transaction, collection, transfer).
+- [ ] Ensure your system correctly handles status updates (pending, success, failed).
+- [ ] Implement a mechanism to retry or catch up in case a webhook is missed.
+
+---
+
+## Security and Monitoring
+
+- [ ] Confirm the use of production API keys.
+- [ ] Ensure all communications go through HTTPS/TLS.
+- [ ] Enable logging and set up an alert system for critical errors.
+
+---
+
+> Once this checklist is completed, your Cartevo integration is ready for production deployment.

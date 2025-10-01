@@ -1,0 +1,97 @@
+---
+title: Collections — Cartevo
+description: Encaissements reçus sur vos portefeuilles (collecte) et notifications.
+---
+
+# Collections (Encaissements)
+
+Les paiements reçus sur vos portefeuilles Cartevo sont appelés « collections ». Cette section présente comment consulter ces encaissements et recevoir des notifications de succès/échec.
+
+Utilisez les exemples ci‑dessous pour filtrer, paginer et inspecter le détail d’une transaction d’encaissement.
+
+## Présentation
+
+La fonctionnalité de collections permet aux entreprises de recevoir des fonds sur leurs portefeuilles (par ex. XAF, USD). Chaque encaissement donne lieu à une transaction consultable via l’API Transactions.
+
+> Note: Cartevo n’expose pas ici la création de comptes bancaires virtuels. Les encaissements sont rattachés aux portefeuilles existants de l’entreprise.
+
+## Endpoint examples
+
+### Transactions (toutes)
+<ApiPlayground schema="/openapi.json" endpoint="/wallet/transactions" method="get" />
+
+Paramètres de requête
+
+- `status`: SUCCESS | PENDING | FAILED
+- `type`: FUND | DEPOSIT | TRANSFER | COLLECTION
+- `page`, `limit`: pagination
+
+### Transactions d’un portefeuille
+<ApiPlayground schema="/openapi.json" endpoint="/wallet/transactions/wallet/{walletId}" method="get" />
+
+Paramètres
+
+- `walletId` (chemin), `page`, `limit` (requête)
+
+### Détail d’une transaction
+<ApiPlayground schema="/openapi.json" endpoint="/wallet/transactions/{id}" method="get" />
+
+Paramètres de chemin
+
+- `id`: identifiant de la transaction
+
+Filtrez par statut ou type si nécessaire pour isoler les encaissements.
+
+## Webhook — Exemple de payload
+
+Cartevo peut notifier les événements liés aux encaissements.
+
+Succès de collection
+```json
+{
+  "event": "collection.successful",
+  "id": "3f0b15e8-af5f-455f-986e-a538ef44ca48",
+  "status": "SUCCESS",
+  "wallet_id": "<walletId>",
+  "amount": 15000,
+  "currency": "XAF",
+  "created_at": "2025-10-01T12:34:56Z"
+}
+```
+
+Échec de collection
+```json
+{
+  "event": "collection.failed",
+  "id": "3f0b15e8-af5f-455f-986e-a538ef44ca48",
+  "status": "FAILED",
+  "wallet_id": "<walletId>",
+  "amount": 15000,
+  "currency": "XAF",
+  "created_at": "2025-10-01T12:34:56Z"
+}
+```
+
+> Conseil
+> 
+> Vérifiez toujours l’état d’une collection côté API Transactions avant de crédibiliser définitivement un utilisateur.
+
+## Schémas (extraits)
+
+Transaction
+```ts
+type Transaction = {
+  id: string;
+  type: 'FUND' | 'DEPOSIT' | 'TRANSFER' | 'COLLECTION';
+  status: 'SUCCESS' | 'PENDING' | 'FAILED';
+  wallet_id: string;
+  amount: number;
+  currency: string;
+  created_at: string;
+}
+```
+
+## Aller plus loin
+
+- Portefeuilles (solde): `GET /wallets/balance/:walletId`
+

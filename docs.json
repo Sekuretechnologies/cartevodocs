@@ -1,68 +1,98 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Cartevo Documentation",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#1F66FF",
+    "light": "#4C84FF",
+    "dark": "#154ACC"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "guides/overview",
+              "guides/why-cartevo",
+              "guides/use-cases",
+              "guides/definitions",
+              "guides/going-live-checklist"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Getting Started",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "getting-started/overview",
+              "getting-started/authentication",
+              "getting-started/environment"
             ]
           }
         ]
       },
       {
         "tab": "API reference",
+
         "groups": [
           {
             "group": "API documentation",
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "Wallets",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/endpoint/get-wallets",
+              "api-reference/endpoint/post-wallets",
+              "api-reference/endpoint/get-wallet-by-id",
+              "api-reference/endpoint/get-wallet-transactions",
+              "api-reference/endpoint/post-wallets-id-transfer-internal",
+              "api-reference/endpoint/post-wallets-fund",
+              "api-reference/endpoint/post-wallets-deposit",
+              "api-reference/endpoint/post-wallets-transfer-between"
+            ]
+          },
+
+          {
+            "group": "Cards",
+            "pages": [
+              "api-reference/endpoint/get-cards",
+              "api-reference/endpoint/post-cards",
+              "api-reference/endpoint/get-card-by-id",
+              "api-reference/endpoint/put-card-freeze",
+              "api-reference/endpoint/put-card-unfreeze",
+              "api-reference/endpoint/post-card-fund",
+              "api-reference/endpoint/post-card-withdraw",
+              "api-reference/endpoint/get-card-transactions"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Transactions",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/endpoint/get-wallet-transactions-global",
+              "api-reference/endpoint/get-transaction"
+            ]
+          },
+          {
+            "group": "Customers",
+            "pages": [
+              "api-reference/endpoint/get-customers",
+              "api-reference/endpoint/post-customers",
+              "api-reference/endpoint/get-customer-by-id",
+              "api-reference/endpoint/get-customer-transactions"
+            ]
+          },
+
+          {
+            "group": "Guides (domain)",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/wallets",
+              "api-reference/collections"
             ]
           }
         ]
@@ -72,20 +102,15 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://developer.cartevo.co/",
           "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo.ico",
+    "dark": "/logo.ico"
   },
   "navbar": {
     "links": [
@@ -102,15 +127,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
