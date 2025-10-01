@@ -1,40 +1,39 @@
 ---
 title: Cartevo — Documentation
-description: Plateforme de gestion de portefeuilles multi‑devises, transferts et transactions.
+description: Multi-currency wallet management platform, transfers, and transactions.
 ---
 
-## À propos
+## About
 
-Cartevo permet aux entreprises de:
+Cartevo allows businesses to:
 
-- Gérer des portefeuilles (création, détail, solde)
-- Alimenter des portefeuilles (alimentation locale, dépôt avec change)
-- Effectuer des transferts (internes et entre portefeuilles)
-- Consulter les transactions (par portefeuille, client, statut)
-- Gérer les clients (création, liste, détails)
-- Convertir des montants via un endpoint dédié (les taux sont gérés par l’administrateur)
+- Manage wallets (creation, details, balance)
+- Fund wallets (local funding, deposit with exchange, test credit in pre-production)
+- Perform transfers (internal and between wallets)
+- View transactions (by wallet, client, status)
+- Manage clients (creation, list, details)
+- Convert amounts via a dedicated endpoint (rates are managed by the administrator)
 
-### Capacités clés
+### Key Capabilities
 
-- Création multi‑devises: XAF, USD, …
-- Encodage des opérations: idempotence, pagination, filtres par statut/type
-- Sécurité: authentification Bearer, séparation pré‑production/production
-- Observabilité: `request-id`, webhooks (collections)
+- Multi-currency creation: XAF, USD, …
+- Operation encoding: idempotency, pagination, filters by status/type
+- Security: Bearer authentication, pre-production/production separation
+- Observability: `request-id`, webhooks (collections)
 
 ## Commencer
 
-<Card title="Guide de démarrage" icon="rocket" href="/quickstart" horizontal>
-  Intégrez rapidement les services essentiels (portefeuilles, transactions,
-  clients).
+<Card title="Quickstart Guide" icon="rocket" href="/quickstart" horizontal>
+  Quickly integrate essential services (wallets, transactions, clients).
 </Card>
 
-<Card title="Référence API" icon="terminal" href="/api-reference/introduction">
-  Consulter les endpoints et exemples de requêtes par service.
+<Card title="API Reference" icon="terminal" href="/api-reference/introduction">
+  View endpoints and sample requests by service.
 </Card>
 
-## Exemples rapides
+## Quick Examples
 
-Créer un portefeuille (cURL)
+Create a wallet (cURL)
 
 ```bash
 curl -X POST "$BASE_URL/wallets" \
@@ -44,6 +43,7 @@ curl -X POST "$BASE_URL/wallets" \
     "currency": "USD",
     "country_iso_code": "US"
   }'
+
 ```
 
 Lister les transactions d’un portefeuille (Node.js)

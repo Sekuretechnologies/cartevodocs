@@ -1,33 +1,33 @@
 ---
-title: Prise en main — Vue d’ensemble
-description: Bases pour consommer l’API Cartevo.
+title: Getting Started — Overview
+description: Basics for consuming the Cartevo API.
 ---
 
-
-L’API Cartevo est conçue pour être simple à utiliser, prévisible et conforme aux standards du web.  
-Cette section présente les concepts fondamentaux avant de démarrer votre intégration.
+The Cartevo API is designed to be simple to use, predictable, and compliant with web standards.  
+This section introduces the fundamental concepts before starting your integration.
 
 ---
 
 ## Format
 
-- **Architecture** : RESTful  
-- **Données échangées** : JSON  
-- **Encodage** : UTF-8  
-- **Base URL** :  
-  - Environnement de test (sandbox) : `https://sandbox.api.cartevo.com/v1/`  
-  - Environnement de production : `https://api.cartevo.com/v1/`  
+- **Architecture**: RESTful
+- **Data exchanged**: JSON
+- **Encoding**: UTF-8
+- **Base URL**:
+  - Sandbox (test environment): `https://sandbox.api.cartevo.com/v1/`
+  - Production: `https://api.cartevo.com/v1/`
 
 ---
 
-## Authentification
+## Authentication
 
-L’authentification se fait via un **Bearer Token** dans l’en-tête HTTP `Authorization`.  
+Authentication is done via a **Bearer Token** in the HTTP `Authorization` header.
 
-**Exemple d’appel avec Bearer Token :**
+**Example request with Bearer Token:**
 
 ```http
 GET /wallets/{id} HTTP/1.1
 Host: api.cartevo.com
 Authorization: Bearer YOUR_API_KEY
 Content-Type: application/json
+```

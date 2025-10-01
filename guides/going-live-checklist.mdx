@@ -1,49 +1,49 @@
 ---
-title: Checklist de mise en production
-description: Vérifications avant passage en production.
+title: Production Checklist
+description: Pre-launch verifications before going live.
 ---
 
-Avant de basculer en environnement de production, assurez-vous que toutes les étapes suivantes ont été validées.  
-Cette checklist permet de réduire les risques liés à la mise en service et garantit une intégration fluide.
-
----
-
-## Portefeuilles
-
-- [ ] Vérifier la configuration des portefeuilles nécessaires (par devise, par utilisateur ou par entité).  
-- [ ] Confirmer que les soldes de départ et les règles de gestion des fonds sont correctement définis.  
+Before switching to the production environment, ensure that all the following steps have been completed.  
+This checklist helps minimize risks associated with deployment and ensures a smooth integration.
 
 ---
 
-## Encaissements (Collections)
+## Wallets
 
-- [ ] Tester les encaissements en sandbox avec différents scénarios (paiement réussi, échec, montant invalide).  
-- [ ] Vérifier que les statuts retournés par l’API correspondent aux cas attendus.  
-
----
-
-## Transferts
-
-- [ ] Tester les transferts internes (au sein d’une même organisation).  
-- [ ] Tester les transferts entre portefeuilles différents (ex. client → vendeur).  
-- [ ] Vérifier la cohérence des montants et devises.  
+- [ ] Verify the configuration of required wallets (by currency, user, or entity).
+- [ ] Confirm that initial balances and fund management rules are correctly defined.
 
 ---
 
-## Notifications et Statuts
+## Collections
 
-- [ ] Vérifier la réception des notifications (webhooks) pour chaque type d’événement (transaction, encaissement, transfert).  
-- [ ] S’assurer que votre système traite correctement les mises à jour de statuts (pending, success, failed).  
-- [ ] Mettre en place un mécanisme de réémission ou de rattrapage en cas de webhook manqué.  
-
----
-
-## Sécurité et Monitoring
-
-- [ ] Confirmer l’utilisation des clés API de production.  
-- [ ] Vérifier que toutes les communications passent par HTTPS/TLS.  
-- [ ] Activer la journalisation (logs) et mettre en place un système d’alerte en cas d’erreur critique.  
+- [ ] Test collections in the sandbox with various scenarios (successful payment, failure, invalid amount).
+- [ ] Ensure that API statuses correspond to the expected outcomes.
 
 ---
 
-> Une fois cette checklist validée, votre intégration Cartevo est prête pour le passage en production.
+## Transfers
+
+- [ ] Test internal transfers (within the same organization).
+- [ ] Test transfers between different wallets (e.g., customer → seller).
+- [ ] Verify the consistency of amounts and currencies.
+
+---
+
+## Notifications and Statuses
+
+- [ ] Verify receipt of notifications (webhooks) for each event type (transaction, collection, transfer).
+- [ ] Ensure your system correctly handles status updates (pending, success, failed).
+- [ ] Implement a mechanism to retry or catch up in case a webhook is missed.
+
+---
+
+## Security and Monitoring
+
+- [ ] Confirm the use of production API keys.
+- [ ] Ensure all communications go through HTTPS/TLS.
+- [ ] Enable logging and set up an alert system for critical errors.
+
+---
+
+> Once this checklist is completed, your Cartevo integration is ready for production deployment.

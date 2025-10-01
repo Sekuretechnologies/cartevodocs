@@ -30,18 +30,19 @@
             "pages": [
               "getting-started/overview",
               "getting-started/authentication",
-              "getting-started/environment",
-              "getting-started/health-check",
-              "getting-started/payloads",
-              "getting-started/request-ids",
-              "getting-started/rate-limiting"
+              "getting-started/environment"
             ]
           }
         ]
       },
       {
         "tab": "API reference",
+
         "groups": [
+          {
+            "group": "API documentation",
+            "pages": ["api-reference/introduction"]
+          },
           {
             "group": "Wallets",
             "pages": [

@@ -1,15 +1,16 @@
 ---
 title: "Quickstart — Cartevo"
-description: "Intégrer rapidement les services clés: portefeuilles, transactions, clients."
+description: "Quickly integrate key services: wallets, transactions, clients."
 ---
 
-## Objectif
+## Objective
 
-Ce guide vous aide à intégrer rapidement les services essentiels de Cartevo.
+This guide helps you quickly integrate the essential Cartevo services.
 
-## Étape 1 — Portefeuilles
+## Step 1 — Wallets
 
-Créer un portefeuille
+Create a wallet
+
 ```http
 POST /wallets
 Content-Type: application/json
@@ -19,20 +20,24 @@ Authorization: Bearer <token>
   "currency": "USD",
   "country_iso_code": "US"
 }
+
 ```
 
 Lister les portefeuilles
+
 ```http
 GET /wallets
 Authorization: Bearer <token>
 ```
 
 Exemple cURL
+
 ```bash
 curl -X GET "$BASE_URL/wallets" -H "Authorization: Bearer $API_KEY"
 ```
 
 Réponse (200)
+
 ```json
 [
   {
@@ -44,9 +49,10 @@ Réponse (200)
 ]
 ```
 
-## Étape 2 — Alimentation & Dépôt
+## Étape 2 — Funding & Deposit
 
-Alimentation locale
+Local funding
+
 ```http
 POST /wallets/fund
 Content-Type: application/json
@@ -62,7 +68,8 @@ Authorization: Bearer <token>
 }
 ```
 
-Dépôt avec change
+Deposit with exchange
+
 ```http
 POST /wallets/deposit
 Content-Type: application/json
@@ -89,7 +96,8 @@ Authorization: Bearer <token>
 }
 ```
 
-Exemple cURL
+cURL example
+
 ```bash
 curl -X POST "$BASE_URL/wallets/deposit" \
   -H "Authorization: Bearer $API_KEY" \
@@ -97,15 +105,16 @@ curl -X POST "$BASE_URL/wallets/deposit" \
   -d @payload.json
 ```
 
-## Étape 3 — Transactions
+## Step 3 — Transactions
 
-Lister les transactions d’un portefeuille
+List wallet transactions
+
 ```http
 GET /wallet/transactions/wallet/<walletId>
 Authorization: Bearer <token>
 ```
 
-Filtres utiles
+Useful filters
 
 - `status`: SUCCESS, PENDING, FAILED
 - `type`: FUND, DEPOSIT, TRANSFER
@@ -113,7 +122,8 @@ Filtres utiles
 
 ## Étape 4 — Clients
 
-Créer un client
+Step 4 — Customers
+
 ```http
 POST /customers
 Content-Type: application/json
@@ -128,7 +138,7 @@ Authorization: Bearer <token>
 }
 ```
 
-Conseils
+Tips
 
-- Validez les emails et indicatifs pays côté client
-- Réconciliez les transactions clients via `GET /customers/:id/transactions`
+- Validate emails and country codes on the client side
+- Reconcile customer transactions `GET /customers/:id/transactions`
