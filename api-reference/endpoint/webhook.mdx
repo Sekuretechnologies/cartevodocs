@@ -1,4 +1,16 @@
 ---
-title: 'New Plant'
-openapi: 'WEBHOOK /plant/webhook'
+title: HOOK — Collection Webhook
+description: Notifies your system about collection events.
 ---
+
+# Collection Webhook
+
+Cartevo notifie votre système sur les encaissements (collections).
+
+## Try it
+
+<ApiPlayground schema="/openapi.json" endpoint="/collection/webhook" method="post" />
+
+## Payload
+
+Voir `CollectionEvent` dans le schéma OpenAPI.

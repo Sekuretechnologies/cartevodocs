@@ -1,33 +1,37 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: Référence API — Cartevo
+description: Endpoints principaux pour portefeuilles, transactions, clients et conversion.
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+# Référence API — Cartevo
 
-## Welcome
+Cette section décrit les endpoints utilisés par les entreprises pour exploiter Cartevo. Les exemples omettent toute information sensible.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## Bases
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+- Authentification: `Authorization: Bearer <token>`
+- Serveur (prod): `https://api.cartevo.co/api/v1`
+- Formats: JSON uniquement
+- Idempotence: utilisez un en‑tête `Idempotency-Key` pour les opérations sensibles
 
-## Authentication
+## Tester depuis la doc
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+Les pages d’API incluent des exemples cURL/JS. Pour des tests interactifs, référez‑vous à l’OpenAPI intégré et au Playground Mintlify.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+## Portefeuilles (Wallets)
+
+Voir la page dédiée: [Wallets](/api-reference/wallets)
+
+## Transactions
+
+Voir la page dédiée: [Collections](/api-reference/collections)
+
+## Clients (Customers)
+
+Voir la page dédiée: [Customers](/customers/overview)
+
+## Conversion (Entreprise)
+
+<ApiPlayground schema="/openapi.json" endpoint="/company/exchange-rates/convert" method="post" />
+
+
