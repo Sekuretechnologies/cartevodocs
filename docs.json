@@ -43,14 +43,6 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/wallets",
-              "api-reference/collections"
-            ]
-          },
-          {
             "group": "Endpoint examples",
             "pages": [
               "api-reference/endpoint/get-wallets",

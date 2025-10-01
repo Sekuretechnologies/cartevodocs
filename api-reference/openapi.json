@@ -235,6 +235,37 @@
         "responses": { "201": { "description": "Créé" } }
       }
     },
+    "/customers/create": {
+      "post": {
+        "summary": "Créer un client",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": { "type": "string" },
+                  "last_name": { "type": "string" },
+                  "email": { "type": "string" },
+                  "phone_number": { "type": "string" },
+                  "country_iso_code": { "type": "string" }
+                },
+                "required": [
+                  "first_name",
+                  "last_name",
+                  "email",
+                  "phone_number",
+                  "country_iso_code"
+                ]
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "Créé" } }
+      }
+    },
+
     "/customers/{id}": {
       "get": {
         "summary": "Détail client",
