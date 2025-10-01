@@ -1,37 +1,44 @@
 ---
-title: Référence API — Cartevo
-description: Endpoints principaux pour portefeuilles, transactions, clients et conversion.
+title: "API Reference — Introduction"
+description: "Overview of Cartevo API endpoints and how to use them."
 ---
 
-# Référence API — Cartevo
+Welcome to the **Cartevo API reference**. This documentation guides you through the various financial services you can integrate into your applications, including wallet management, transactions, transfers, and customer management.
 
-Cette section décrit les endpoints utilisés par les entreprises pour exploiter Cartevo. Les exemples omettent toute information sensible.
+---
 
-## Bases
+## API Architecture
 
-- Authentification: `Authorization: Bearer <token>`
-- Serveur (prod): `https://api.cartevo.co/api/v1`
-- Formats: JSON uniquement
-- Idempotence: utilisez un en‑tête `Idempotency-Key` pour les opérations sensibles
+- **Architecture**: RESTful
+- **Data format**: JSON
+- **Authentication**: via Bearer Token in the HTTP `Authorization` header
 
-## Tester depuis la doc
+```json
+"security": [
+  {
+    "bearerAuth": []
+  }
+]
 
-Les pages d’API incluent des exemples cURL/JS. Pour des tests interactifs, référez‑vous à l’OpenAPI intégré et au Playground Mintlify.
+```
 
-## Portefeuilles (Wallets)
+---
 
-Voir la page dédiée: [Wallets](/api-reference/wallets)
+## Environments
 
-## Transactions
+- **Pre-production**: for testing your integrations in a controlled environment with limited spending.
+- **Production**: for accessing services under real conditions.
 
-Voir la page dédiée: [Collections](/api-reference/collections)
+---
 
-## Clients (Customers)
+## Best Practices
 
-Voir la page dédiée: [Customers](/customers/overview)
+- **Authentication**: always include your Bearer Token in the `Authorization` header.
+- **Error Handling**: check HTTP status codes to handle errors effectively.
+- **Security**: ensure all communications are secured via HTTPS/TLS.
 
-## Conversion (Entreprise)
+---
 
-<ApiPlayground schema="/openapi.json" endpoint="/company/exchange-rates/convert" method="post" />
+## Quick Start
 
-
+To get started quickly, refer to the cURL request examples and integration guides available in the documentation.
