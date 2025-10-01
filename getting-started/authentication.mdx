@@ -1,18 +1,18 @@
 ---
-title: Authentification
-description: Utiliser un Bearer token pour appeler l’API.
+title: Authentication
+description: Using a Bearer token to call the API.
 ---
 
-
-L’authentification est une étape obligatoire pour interagir avec l’API Cartevo.  
-Toutes les requêtes doivent inclure un **Bearer Token** transmis dans l’en-tête HTTP `Authorization`.  
-Sans ce jeton, vos appels seront rejetés avec une erreur d’authentification.
+Authentication is a mandatory step to interact with the Cartevo API.  
+All requests must include a **Bearer Token** sent in the HTTP `Authorization` header.  
+Without this token, your calls will be rejected with an authentication error.
 
 ---
 
-## Format attendu
+## Expected Format
 
-Le jeton doit être ajouté dans chaque requête HTTP sous la forme :
+The token must be included in each HTTP request as follows:
 
 ```http
 Authorization: Bearer <token>
+```
