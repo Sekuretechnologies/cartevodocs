@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Cartevo API",
-    "description": "Endpoints essentiels pour portefeuilles, transactions, clients et conversion.",
+    "description": "Essential endpoints for wallets, transactions, customers and conversion.",
     "version": "1.0.0"
   },
   "servers": [{ "url": "https://api.cartevo.co/api/v1" }],
@@ -10,11 +10,11 @@
   "paths": {
     "/cards": {
       "get": {
-        "summary": "Lister les cartes",
+        "summary": "List cards",
         "responses": { "200": { "description": "OK" } }
       },
       "post": {
-        "summary": "Créer une carte",
+        "summary": "Create a card",
         "requestBody": {
           "required": true,
           "content": {
@@ -32,41 +32,61 @@
             }
           }
         },
-        "responses": { "201": { "description": "Créé" } }
+        "responses": { "201": { "description": "Created" } }
       }
     },
     "/cards/{id}": {
       "get": {
-        "summary": "Détail d’une carte",
+        "summary": "Card details",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
         ],
         "responses": { "200": { "description": "OK" } }
       }
     },
     "/cards/{id}/freeze": {
       "put": {
-        "summary": "Geler une carte",
+        "summary": "Freeze a card",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
         ],
         "responses": { "200": { "description": "OK" } }
       }
     },
     "/cards/{id}/unfreeze": {
       "put": {
-        "summary": "Dégeler une carte",
+        "summary": "Unfreeze a card",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
         ],
         "responses": { "200": { "description": "OK" } }
       }
     },
     "/cards/{id}/fund": {
       "post": {
-        "summary": "Recharger une carte",
+        "summary": "Fund a card",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -89,9 +109,14 @@
     },
     "/cards/{id}/withdraw": {
       "post": {
-        "summary": "Retrait depuis une carte",
+        "summary": "Withdraw from a card",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -114,20 +139,25 @@
     },
     "/cards/{id}/transactions": {
       "get": {
-        "summary": "Transactions d’une carte",
+        "summary": "Card transactions",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
         ],
         "responses": { "200": { "description": "OK" } }
       }
     },
     "/wallets": {
       "get": {
-        "summary": "Lister les portefeuilles",
+        "summary": "List wallets",
         "responses": { "200": { "description": "OK" } }
       },
       "post": {
-        "summary": "Créer un portefeuille",
+        "summary": "Create a wallet",
         "requestBody": {
           "required": true,
           "content": {
@@ -143,12 +173,12 @@
             }
           }
         },
-        "responses": { "201": { "description": "Créé" } }
+        "responses": { "201": { "description": "Created" } }
       }
     },
     "/wallets/{id}": {
       "get": {
-        "summary": "Détail d’un portefeuille",
+        "summary": "Wallet details",
         "parameters": [
           {
             "name": "id",
@@ -162,7 +192,7 @@
     },
     "/wallets/fund": {
       "post": {
-        "summary": "Alimentation locale",
+        "summary": "Local funding",
         "requestBody": {
           "required": true,
           "content": {
@@ -194,7 +224,7 @@
     },
     "/wallets/deposit": {
       "post": {
-        "summary": "Dépôt avec change",
+        "summary": "Deposit with exchange",
         "requestBody": {
           "required": true,
           "content": {
@@ -220,7 +250,7 @@
     },
     "/wallets/transfer-between": {
       "post": {
-        "summary": "Transfert entre portefeuilles",
+        "summary": "Transfer between wallets",
         "requestBody": {
           "required": true,
           "content": {
@@ -248,9 +278,14 @@
     },
     "/wallets/{id}/transfer-internal": {
       "post": {
-        "summary": "Transfert interne (PAYIN ⇄ PAYOUT)",
+        "summary": "Internal transfer (PAYIN ⇄ PAYOUT)",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -260,7 +295,10 @@
                 "type": "object",
                 "properties": {
                   "amount": { "type": "number" },
-                  "direction": { "type": "string", "enum": ["PAYIN_TO_PAYOUT", "PAYOUT_TO_PAYIN"] },
+                  "direction": {
+                    "type": "string",
+                    "enum": ["PAYIN_TO_PAYOUT", "PAYOUT_TO_PAYIN"]
+                  },
                   "reason": { "type": "string" }
                 },
                 "required": ["amount", "direction"]
@@ -273,7 +311,7 @@
     },
     "/wallet/transactions": {
       "get": {
-        "summary": "Lister les transactions",
+        "summary": "List transactions",
         "parameters": [
           {
             "name": "status",
@@ -307,7 +345,7 @@
     },
     "/wallet/transactions/wallet/{walletId}": {
       "get": {
-        "summary": "Transactions par portefeuille",
+        "summary": "Transactions by wallet",
         "parameters": [
           {
             "name": "walletId",
@@ -323,7 +361,7 @@
     },
     "/wallet/transactions/{id}": {
       "get": {
-        "summary": "Détail d’une transaction",
+        "summary": "Transaction details",
         "parameters": [
           {
             "name": "id",
@@ -337,7 +375,7 @@
     },
     "/customers": {
       "get": {
-        "summary": "Lister les clients",
+        "summary": "List customers",
         "parameters": [
           { "name": "page", "in": "query", "schema": { "type": "integer" } },
           { "name": "limit", "in": "query", "schema": { "type": "integer" } }
@@ -345,7 +383,7 @@
         "responses": { "200": { "description": "OK" } }
       },
       "post": {
-        "summary": "Créer un client",
+        "summary": "Create a customer",
         "requestBody": {
           "required": true,
           "content": {
@@ -370,12 +408,12 @@
             }
           }
         },
-        "responses": { "201": { "description": "Créé" } }
+        "responses": { "201": { "description": "Created" } }
       }
     },
     "/customers/create": {
       "post": {
-        "summary": "Créer un client",
+        "summary": "Create a customer",
         "requestBody": {
           "required": true,
           "content": {
@@ -400,13 +438,13 @@
             }
           }
         },
-        "responses": { "201": { "description": "Créé" } }
+        "responses": { "201": { "description": "Created" } }
       }
     },
 
     "/customers/{id}": {
       "get": {
-        "summary": "Détail client",
+        "summary": "Customer details",
         "parameters": [
           {
             "name": "id",
@@ -420,7 +458,7 @@
     },
     "/customers/{id}/transactions": {
       "get": {
-        "summary": "Transactions d’un client",
+        "summary": "Customer transactions",
         "parameters": [
           {
             "name": "id",
@@ -436,7 +474,7 @@
     },
     "/company/exchange-rates/convert": {
       "post": {
-        "summary": "Conversion de montant",
+        "summary": "Amount conversion",
         "requestBody": {
           "required": true,
           "content": {
