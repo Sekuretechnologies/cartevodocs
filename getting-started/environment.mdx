@@ -1,16 +1,25 @@
 ---
 title: Environments
-description: Preproduction and Production.
+description: Preproduction and Production environments.
 ---
 
 # Environments
 
-Cartevo provides two distinct environments to support development, testing, and live operations:
+Cartevo provides two distinct environments to support development, testing, and live operations.
 
-- **Preproduction**:  
-  This environment replaces the old sandbox. It allows you to test your integrations in near-real conditions with limited transaction amounts.  
-  Use Preproduction to validate workflows, test API calls, and ensure your system behaves correctly before going live.
+---
 
-- **Production**:  
-  The live environment where real transactions take place.  
-  Make sure all your integrations have been fully tested in Preproduction before using Production.
+## **Preproduction**
+
+The **Preproduction** environment allows you to test your integrations in conditions that closely mirror production.  
+Use it to validate workflows, verify API calls, and ensure your systems function as expected before going live.
+
+> ⚙️ **Note:** In the Preproduction environment, wallet balances are limited to **50,000 XAF** (approximately **80 USD**).  
+> This limitation helps keep your test operations safe, controlled, and predictable.
+
+---
+
+## **Production**
+
+The **Production** environment is where real operations take place, with no limitations on balances or transactions.  
+All transactions and funds are real — just like in Preproduction — but this environment is intended exclusively for fully verified integrations and actual business use.
